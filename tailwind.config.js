@@ -6,13 +6,44 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      xs: "480px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      container: {
+        padding: {
+          DEFAULT: "1rem",
+          sm: "1rem",
+          lg: "1rem",
+          xl: "1rem",
+          "2xl": "5rem",
+        },
+      },
+      colors: {
+        brown: {
+          100: "#ECE0D1",
+          300: "#DBC1AC",
+          600: "#967259",
+          900: "#634832",
+        },
+      },
+      boxShadow: {
+        normal: "0px 1px 10px 0px rgba(0, 0, 0, 0.05)",
+      },
+      borderRadius: {
+        "4xl": "2rem",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addVariant }) {
+      addVariant("child", "& > *");
+      addVariant("child-hover", "& > *:hover");
+    },
+  ],
 };

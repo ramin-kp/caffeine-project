@@ -5,6 +5,7 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     screens: {
       xs: "480px",
@@ -15,7 +16,16 @@ module.exports = {
       "2xl": "1536px",
     },
     extend: {
+      fontFamily: {
+        Dana: "Dana",
+        DanaMedium: "DanaMedium",
+        DanaDemiBold: "DanaDemiBold",
+        MorabbaLight: "MorabbaLight",
+        MorabbaMedium: "MorabbaMedium",
+        MorabbaBold: "MorabbaBold",
+      },
       container: {
+        center: true,
         padding: {
           DEFAULT: "1rem",
           sm: "1rem",
@@ -23,6 +33,9 @@ module.exports = {
           xl: "1rem",
           "2xl": "5rem",
         },
+      },
+      spacing: {
+        30: "7.5rem",
       },
       colors: {
         brown: {

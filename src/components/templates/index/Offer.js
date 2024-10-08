@@ -8,10 +8,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
-import "swiper/css/pagination";
 
 // import required modules
-import { FreeMode, Pagination, Navigation, Autoplay } from "swiper/modules";
+import { FreeMode, Autoplay } from "swiper/modules";
 import ProductCard from "@/components/modules/products/ProductCard";
 
 function Offer() {
@@ -59,7 +58,6 @@ function Offer() {
             </div>
           </div>
         </div>
-
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
@@ -67,7 +65,7 @@ function Offer() {
           loop={true}
           autoplay={{ delay: 1500, disableOnInteraction: false }}
           speed={1000}
-          modules={[FreeMode, Pagination, Navigation, Autoplay]}
+          modules={[FreeMode, Autoplay]}
           breakpoints={{
             370: {
               slidesPerView: 2,
@@ -94,7 +92,7 @@ function Offer() {
               spaceBetween: 20,
             },
           }}
-          className="mySwiper"
+          className="mySwiper w-full"
         >
           <SwiperSlide className="products-card-item">
             <ProductCard img={"p1.png"} />

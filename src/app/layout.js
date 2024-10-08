@@ -2,6 +2,7 @@
 import SvgComponents from "@/components/modules/SvgComponents/SvgComponents";
 import "./globals.css";
 import Navbar from "@/components/modules/navbar/Navbar";
+import Footer from "@/components/modules/footer/Footer";
 // import { localFont } from "next/font";
 
 //fonts
@@ -60,6 +61,7 @@ export default function RootLayout({ children }) {
       <body>
         <Navbar />
         {children}
+        <Footer />
         <SvgComponents />
       </body>
     </html>

@@ -15,7 +15,7 @@ import ProductCard from "@/components/modules/products/ProductCard";
 
 function Offer() {
   return (
-    <section className="container mt-14">
+    <section className="container mt-14" data-aos="fade-up">
       <div className="flex flex-col overflow-hidden lg:flex-row items-center lg:gap-x-10 bg-white dark:bg-zinc-700 rounded-lg shadow p-5">
         <div className="lg:h-full flex flex-col justify-evenly gap-y-2 mb-3 lg:mb-0">
           <div className="flex justify-between flex-col gap-y-3 font-MorabbaMedium">

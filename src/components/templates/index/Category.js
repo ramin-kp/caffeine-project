@@ -4,7 +4,7 @@ import React from "react";
 
 function Category() {
   return (
-    <section className="container mt-14">
+    <section className="container mt-14" data-aos="fade-up">
       <div className="w-full text-center">
         <Link href="#" className="inline-flex items-center justify-center">
           <span className="cursor-pointer transition-colors gap-x-2 flex items-center justify-center">

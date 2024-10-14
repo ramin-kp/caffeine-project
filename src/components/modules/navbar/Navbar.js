@@ -1,41 +1,59 @@
+"use client";
 import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function Navbar() {
+  const [isStickyNavbar, setIsStickyNavbar] = useState(false);
+
+  useEffect(() => {
+    const currentScroll = () =>
+      window.scrollY > 5 ? setIsStickyNavbar(true) : setIsStickyNavbar(false);
+    window.addEventListener("scroll", currentScroll);
+    return () => window.removeEventListener("scroll", currentScroll);
+  }, []);
   return (
-    <header>
+    <header
+      className={`${
+        isStickyNavbar ? "sticky inset-0 z-10" : ""
+      } transition-all duration-150`}
+    >
       {/* <!-- NAV BAR  --> */}
       <nav className="w-full hidden md:flex shadow py-5 bg-white dark:bg-zinc-700">
         <div className="container flex items-center justify-between">
           {/* <!-- LOGO --> */}
           <a
-            href="index.html"
+            href="#"
             className="flex items-center gap-x-1 dark:text-brown-300 text-brown-600 font-MorabbaMedium text-xl lg:text-3xl"
           >
-            <img src="./Images/logo.png" alt="logo" className="w-6 h-6 " />
+            <Image
+              src="/images/logo.png"
+              width={24}
+              height={24}
+              alt="logo"
+              className="w-6 h-6 "
+            />
             <h1>کافئین</h1>
           </a>
           {/* <!-- MENU --> */}
           <ul className="mt-2 flex items-center gap-x-4 lg:gap-x-10 font-DanaMedium lg:mr-30 xl:mr-32 child:z-30">
             <li className="nav-item text-green-500">
-              <a href="index.html">صفحه اصلی</a>
+              <a href="/">صفحه اصلی</a>
             </li>
             {/* <!-- ITEM HASE SUBMENU --> */}
             <li className="relative group">
               <div className="flex items-center flex-row gap-x-1">
-                <a href="shop.html">فروشگاه</a>
+                <a href="#">فروشگاه</a>
                 <svg className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180">
                   <use href="#chevron-down"></use>
                 </svg>
               </div>
               {/* <!-- SUBMENU --> */}
               <div className="absolute bg-white flex flex-col gap-y-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:top-10 transition-all delay-100 dark:bg-zinc-700 top-20 w-52 rounded border-t-2 border-green-500 p-5 text-base shadow-md child-hover:text-green-500 child:transition-all">
-                <a href="shop.html">اسپرسو</a>
-                <a href="shop.html">قهوه ترک</a>
-                <a href="shop.html">قهوه فرانسه</a>
-                <a href="shop.html">کپسول اسپرسو</a>
-                <a href="shop.html">لوازم و تجهیزات</a>
+                <a href="#">اسپرسو</a>
+                <a href="#">قهوه ترک</a>
+                <a href="#">قهوه فرانسه</a>
+                <a href="#">کپسول اسپرسو</a>
+                <a href="#">لوازم و تجهیزات</a>
               </div>
             </li>
             {/* <!-- ITEM HASE SUBMENU --> */}
@@ -48,17 +66,17 @@ function Navbar() {
               </div>
               {/* <!-- SUBMENU --> */}
               <div className="absolute bg-white flex flex-col gap-y-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:top-10 transition-all delay-100 dark:bg-zinc-700 top-20 w-52 rounded border-t-2 border-green-500 p-5 text-base shadow-md child-hover:text-green-500 child:transition-all">
-                <a href="articles.html">سلامتی</a>
-                <a href="articles.html">اخبار قهوه</a>
-                <a href="articles.html">روش‌های دم‌آوری قهوه</a>
-                <a href="articles.html">لوازم و تجهیزات قهوه</a>
+                <a href="#">سلامتی</a>
+                <a href="#">اخبار قهوه</a>
+                <a href="#">روش‌های دم‌آوری قهوه</a>
+                <a href="#">لوازم و تجهیزات قهوه</a>
               </div>
             </li>
             <li className="nav-item">
-              <a href="contact-us.html">تماس با ما</a>
+              <a href="#">تماس با ما</a>
             </li>
             <li className="nav-item">
-              <a href="aboute-us.html">درباره ما</a>
+              <a href="#l">درباره ما</a>
             </li>
           </ul>
           {/* <!-- ACTION BTN --> */}
@@ -110,7 +128,7 @@ function Navbar() {
               {/* <!-- SUB MENU  --> */}
               <div className="absolute dark:border-none border border-gray-100 w-52 p-4 bg-white text-zinc-900 dark:text-white flex flex-col gap-y-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:top-12 transition-all delay-100 dark:bg-zinc-800 top-20 rounded text-base shadow child:transition-all child:py-1 child:px-2">
                 <a
-                  href="dashboard-orders.html"
+                  href="#"
                   className="flex items-center gap-x-3 w-full hover:bg-green-500/20 hover:text-green-500 rounded"
                 >
                   <svg className="h-5 w-5">
@@ -119,7 +137,7 @@ function Navbar() {
                   سفارشات من
                 </a>
                 <a
-                  href="dashboard-messages.html"
+                  href="#"
                   className="flex items-center gap-x-3 w-full hover:bg-green-500/20 hover:text-green-500 rounded"
                 >
                   <svg className="h-5 w-5">
@@ -128,7 +146,7 @@ function Navbar() {
                   لیست پیام ها
                 </a>
                 <a
-                  href="dashboard-account.html"
+                  href="#"
                   className="flex items-center gap-x-3 w-full hover:bg-green-500/20 hover:text-green-500 rounded"
                 >
                   <svg className="h-5 w-5">
@@ -180,9 +198,11 @@ function Navbar() {
           {/* <!-- ITEM --> */}
           <div className="flex items-center gap-x-3 border-b border-gray-200 pb-4 dark:border-white/10">
             {/* <!-- IMAGE --> */}
-            <img
-              src="./Images/products/p3.png"
+            <Image
               className="w-20 h-20 object-cover rounded-lg"
+              src="/images/products/p3.png"
+              width={80}
+              height={80}
               alt=""
             />
             {/* <!-- TEXT --> */}
@@ -202,9 +222,11 @@ function Navbar() {
           {/* <!-- ITEM --> */}
           <div className="flex items-center gap-x-3 border-b border-gray-200 pb-4 dark:border-white/10">
             {/* <!-- IMAGE --> */}
-            <img
-              src="./Images/products/p4.png"
+            <Image
               className="w-20 h-20 object-cover rounded-lg"
+              src="/images/products/p4.png"
+              width={80}
+              height={80}
               alt=""
             />
             {/* <!-- TEXT --> */}
@@ -235,7 +257,7 @@ function Navbar() {
         <div className="w-full absolute bottom-4 flex items-center gap-x-10">
           {/* <!-- BORDER --> */}
           <a
-            href="shopping-cart.html"
+            href="#"
             className="py-2 px-3 rounded-lg transition-colors bg-green-500 hover:bg-green-600 dark:hover:bg-green-600 text-white"
           >
             ثبت سفارش
@@ -261,10 +283,16 @@ function Navbar() {
           {/* <!-- HEAADER --> */}
           <div className="mt-3 flex items-center justify-between">
             <a
-              href="index.html"
+              href="#"
               className="flex items-center gap-x-1 dark:text-brown-300 text-brown-600 font-MorabbaMedium text-xl"
             >
-              <img src="./Images/logo.png" alt="logo" className="w-6 h-6" />
+              <Image
+                src="/images/logo.png"
+                width={24}
+                height={24}
+                alt="logo"
+                className="w-6 h-6"
+              />
               <h1>کافئین</h1>
             </a>
             <svg className="mobile-menu__close-icon w-6 h-6 cursor-pointer">
@@ -282,7 +310,7 @@ function Navbar() {
           {/* <!-- MENU  --> */}
           <ul className="flex flex-col gap-y-6 text-zinc-700 dark:text-white">
             <li>
-              <a href="index.html" className="flex items-center gap-x-2">
+              <a href="#" className="flex items-center gap-x-2">
                 <svg className="w-5 h-5">
                   <use href="#home"></use>
                 </svg>
@@ -292,7 +320,7 @@ function Navbar() {
             <li className="">
               <div className="open-submenu flex w-full items-center justify-between">
                 <a
-                  href="shop.html"
+                  href="#"
                   className="transition-all flex items-center gap-x-2"
                 >
                   <svg className="w-5 h-5">
@@ -305,15 +333,15 @@ function Navbar() {
                 </svg>
               </div>
               <div className="submenu hidden flex-col gap-y-3 mt-3 child:text-sm mr-7">
-                <a href="shop.html">اسپرسو</a>
-                <a href="shop.html">قهوه ترک</a>
-                <a href="shop.html">قهوه فرانسه</a>
-                <a href="shop.html">کپسول اسپرسو</a>
-                <a href="shop.html">لوازم و تجهیزات</a>
+                <a href="#">اسپرسو</a>
+                <a href="#">قهوه ترک</a>
+                <a href="#">قهوه فرانسه</a>
+                <a href="#">کپسول اسپرسو</a>
+                <a href="#">لوازم و تجهیزات</a>
               </div>
             </li>
             <li>
-              <a href="articles.html" className="flex items-center gap-x-2">
+              <a href="#" className="flex items-center gap-x-2">
                 <svg className="w-5 h-5">
                   <use href="#document"></use>
                 </svg>
@@ -321,7 +349,7 @@ function Navbar() {
               </a>
             </li>
             <li>
-              <a href="contact-us.html" className="flex items-center gap-x-2">
+              <a href="#" className="flex items-center gap-x-2">
                 <svg className="w-5 h-5">
                   <use href="#phone"></use>
                 </svg>
@@ -329,7 +357,7 @@ function Navbar() {
               </a>
             </li>
             <li>
-              <a href="aboute-us.html" className="flex items-center gap-x-2">
+              <a href="#" className="flex items-center gap-x-2">
                 <svg className="w-5 h-5">
                   <use href="#check"></use>
                 </svg>
@@ -341,7 +369,7 @@ function Navbar() {
           <span className="flex w-full border-t dark:border-white/10 border-gray-200 my-8"></span>
           {/* <!-- ACTION BTNS --> */}
           <div className="flex items-start flex-col gap-y-5 child:flex child:items-center child:gap-x-2 child:font-DanaMedium">
-            <a href="dashboard.html">
+            <a href="#">
               <svg className="w-5 h-5">
                 <use href="#user"></use>
               </svg>
@@ -370,10 +398,16 @@ function Navbar() {
           </div>
         </div>
         <a
-          href="index.html"
+          href="#"
           className="flex items-center gap-x-1 dark:text-brown-300 text-brown-600 font-MorabbaMedium text-xl"
         >
-          <img src="./Images/logo.png" alt="logo" className="w-6 h-6" />
+          <Image
+            src="/images/logo.png"
+            width={24}
+            height={24}
+            alt="logo"
+            className="w-6 h-6"
+          />
           <h1>کافئین</h1>
         </a>
         {/* <!-- OPEN SHOPPING CART BTN  --> */}

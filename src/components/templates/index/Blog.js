@@ -4,7 +4,7 @@ import BlogCard from "@/components/modules/blogs/BlogCard";
 
 function Blog() {
   return (
-    <section className="container mt-14">
+    <section className="container mt-14" data-aos="fade-up">
       <div className="flex items-center justify-between mb-12">
         <div className="flex flex-col gap-y-2">
           <h2 className="font-MorabbaMedium text-xl lg:text-3xl">

@@ -16,7 +16,7 @@ function Banner() {
   const nextButton = useRef();
 
   return (
-    <div className="relative px-[9px] mt4 lg:mt-6">
+    <div className="relative px-[9px] mt4 lg:mt-6" data-aos="fade-up">
       <Swiper
         modules={[Navigation, Autoplay]}
         autoplay={{

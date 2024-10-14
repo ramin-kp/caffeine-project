@@ -436,7 +436,12 @@
   .products-card-item {
     @apply w-64 mb-2 bg-white dark:bg-zinc-700 shadow relative cursor-pointer overflow-hidden rounded-lg;
   }
+  .ltr__input{
+    text-align: right;
+    direction: ltr;
+  }
 }
+
 .scrollToTop-button {
   position: fixed;
   bottom: 10px;
@@ -445,8 +450,12 @@
   align-items: center;
   width: 50px;
   height: 50px;
-  background-color: rgb(226, 225, 225);
   z-index: 999;
   border-radius: 100%;
-  @apply shadow-lg;
+  @apply bg-green-500 hover:bg-green-600 duration-150 shadow-lg;
+}
+.swal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

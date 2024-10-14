@@ -47,7 +47,7 @@ function Footer() {
               href="index.html"
               className="text-green-500 transition-colors w-fit block"
             >
-              <p className="font-MorabbaBold text-3xl">کافئین</p>
+              <p className="font-MorabbaBold text-3xl">قهوه تلخ</p>
               <p className="tracking-tighter">حس نو با قهوه...</p>
             </Link>
             <p className="leading-8">
@@ -150,7 +150,7 @@ function Footer() {
             تمام حقوق این سایت متعلق به
             <Link href="index.html" className="text-green-500 font-DanaMedium">
               {" "}
-              کافئین
+              قهوه تلخ
             </Link>{" "}
             میباشد
           </p>

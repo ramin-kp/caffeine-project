@@ -5,6 +5,8 @@ import "./globals.css";
 //utils
 import AOSInit from "@/utils/aos";
 import ScrollToTop from "@/utils/scrollToTop";
+import Navbar from "@/components/modules/navbar/Navbar";
+import Footer from "@/components/modules/footer/Footer";
 
 // import { localFont } from "next/font";
 
@@ -48,8 +50,11 @@ import ScrollToTop from "@/utils/scrollToTop";
 // });
 
 export const metadata = {
-  title: "coffee next app",
+  title: "قهوه تلخ",
   description: "develope by ramin_kp",
+  icons: {
+    icon: "/images/logo.png",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -62,10 +67,12 @@ export default function RootLayout({ children }) {
       // className={`${Dana.variable} ${DanaMedium.variable} ${DanaDemiBold.variable} ${MorabbaLight.variable} ${MorabbaMedium.variable} ${MorabbaBold.variable}`}
     >
       <body>
+        <Navbar />
         <AOSInit />
         {children}
         <ScrollToTop />
         <SvgComponents />
+        <Footer />
       </body>
     </html>
   );

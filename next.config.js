@@ -2,7 +2,8 @@
 const nextConfig = {
   experimental: {
     appDir: true,
+    serverComponentsExternalPackages: ["mongoose","bcrypt",],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

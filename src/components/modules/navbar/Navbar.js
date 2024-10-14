@@ -32,7 +32,7 @@ function Navbar() {
               alt="logo"
               className="w-6 h-6 "
             />
-            <h1>کافئین</h1>
+            <h1>قهوه تلخ</h1>
           </a>
           {/* <!-- MENU --> */}
           <ul className="mt-2 flex items-center gap-x-4 lg:gap-x-10 font-DanaMedium lg:mr-30 xl:mr-32 child:z-30">
@@ -293,7 +293,7 @@ function Navbar() {
                 alt="logo"
                 className="w-6 h-6"
               />
-              <h1>کافئین</h1>
+              <h1>قهوه تلخ</h1>
             </a>
             <svg className="mobile-menu__close-icon w-6 h-6 cursor-pointer">
               <use href="#close"></use>
@@ -408,7 +408,7 @@ function Navbar() {
             alt="logo"
             className="w-6 h-6"
           />
-          <h1>کافئین</h1>
+          <h1>قهوه تلخ</h1>
         </a>
         {/* <!-- OPEN SHOPPING CART BTN  --> */}
         <button className="open-shopping-cart__btn">

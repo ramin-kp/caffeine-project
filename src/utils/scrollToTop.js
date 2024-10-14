@@ -26,7 +26,7 @@ function ScrollToTop() {
       className={`${isVisible ? "inline-flex" : "hidden"} scrollToTop-button`}
       onClick={scrollToTop}
     >
-      <svg className="rotate-180 w-5 h-5 text-zinc-900">
+      <svg className="rotate-180 w-5 h-5 text-white">
         <use href="#chevron-down"></use>
       </svg>
     </button>

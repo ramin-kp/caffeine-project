@@ -436,9 +436,28 @@
   .products-card-item {
     @apply w-64 mb-2 bg-white dark:bg-zinc-700 shadow relative cursor-pointer overflow-hidden rounded-lg;
   }
-  .ltr__input{
+  .ltr__input {
     text-align: right;
     direction: ltr;
+  }
+  .loader {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #d4d7da;
+    border-bottom-color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 }
 

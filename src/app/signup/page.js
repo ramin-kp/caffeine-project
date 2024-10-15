@@ -7,13 +7,16 @@ import swal from "sweetalert";
 
 export function generateMetadata() {
   const title = "قهوه‌تلخ | ثبت نام";
-  return { title };
+  const description = "ثبت نام - قهوه تلخ";
+  return { title, description };
 }
 
 function SignUp() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isShowPassword, setIsShowPassword] = useState(false);
+  const [isLoader, setIsLoader] = useState(false);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -104,19 +107,32 @@ function SignUp() {
                   required=""
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  type="password"
+                  type={isShowPassword ? "text" : "password"}
                 />
-                <svg className="h-5 w-5 text-gray-500 dark:text-gray-200">
-                  <use href="#lock"></use>
-                </svg>
+                {isShowPassword ? (
+                  <svg
+                    className="h-5 w-5 text-gray-500 dark:text-gray-200 cursor-pointer"
+                    onClick={() => setIsShowPassword(false)}
+                  >
+                    <use href="#lock"></use>
+                  </svg>
+                ) : (
+                  <svg
+                    className="h-5 w-5 text-gray-500 dark:text-gray-200 cursor-pointer"
+                    onClick={() => setIsShowPassword(true)}
+                  >
+                    <use href="#eye"></use>
+                  </svg>
+                )}
               </div>
 
               <div>
                 <button
                   className="group transition-colors relative w-full flex justify-center py-3 px-4 border border-transparent font-DanaMedium rounded-lg text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                   type="submit"
+                  disabled={isLoader}
                 >
-                  عضویت
+                  {isLoader ? <span className="loader"></span> : "عضویت"}
                 </button>
               </div>
             </form>

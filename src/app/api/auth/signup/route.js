@@ -57,21 +57,21 @@ const POST = async (req) => {
     const hashedPassword = await hashPassword(password);
 
     const users = await userModel.find({});
+    const token = generateAccessToken({ email });
 
     await userModel.create({
       username,
       email,
       password: hashedPassword,
-      role: users > 0 ? roles.user : roles.admin,
+      role: users.length > 0 ? roles.USER : roles.ADMIN,
     });
-    // const token = generateAccessToken({ email });
 
     return Response.json(
       { message: "ثبت نام شما با موفقیت انجام شد." },
       {
         status: 201,
         headers: {
-          "Set-Cookie": `token=ramin;path=/;httpOnly=true;maxAge=${
+          "Set-Cookie": `token=${token};path=/;httpOnly=true;maxAge=${
             24 * 60 * 60
           }`,
         },

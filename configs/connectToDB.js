@@ -6,7 +6,7 @@ const connectToDB = async () => {
   } else {
     try {
       await mongoose.connect(process.env.DATABASE_URL);
-      console.log("connected to next-todo database");
+      console.log("connected to coffee-next database");
     } catch (error) {
       console.log("connected to database is error", error);
     }

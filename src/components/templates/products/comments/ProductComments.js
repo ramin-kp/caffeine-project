@@ -1,7 +1,9 @@
 "use client";
 import React from "react";
+import SendComments from "./SendComments";
 
-function ProductComments() {
+function ProductComments({ productId, comments }) {
+  console.log("comments", comments);
   return (
     <section className="w-full rounded-lg bg-white dark:bg-zinc-700 shadow p-5">
       <div className="flex items-center gap-x-2 mb-6">
@@ -10,39 +12,7 @@ function ProductComments() {
       </div>
 
       <div className="flex flex-col lg:flex-row items-start gap-10">
-        <div className="lg:w-1/4 flex flex-col w-full ">
-          <p className="font-DanaMedium text-lg mb-2">ثبت دیدگاه</p>
-          <input type="text" placeholder="عنوان" className="tailwind-input" />
-
-          <p className="text-gray-500 dark:text-white text-sm mb-4">
-            این محصول را به دیگران پیشنهاد :{" "}
-          </p>
-          <div
-            className="grid grid-cols-12 child:col-span-6 gap-4 child:w-full  child:flex child:items-center child:justify-center child:gap-x-2 child:rounded-lg child:shadow child:py-2 mb-5 child:font-DanaMedium child:duration-300 
-                  child:transition-all"
-          >
-            <button className="text-green-600 ring-transparent ring-1 focus:ring-green-600 dark:ring-white/20 dark:focus:ring-green-600">
-              <svg className="w-5 h-5">
-                <use href="#hand-up"></use>
-              </svg>
-              میکنم
-            </button>
-            <button className="text-red-500 ring-transparent ring-1 focus:ring-[#EF4343] dark:ring-white/20 dark:focus:ring-[#EF4343]">
-              <svg className="w-5 h-5">
-                <use href="#hand-down"></use>
-              </svg>
-              نمیکنم
-            </button>
-          </div>
-          <textarea
-            className="h-24 tailwind-input"
-            placeholder="متن دیدگاه"
-          ></textarea>
-          <button className="rounded-lg p-2 bg-green-500 hover:bg-green-600 text-white transition-all">
-            ثبت
-          </button>
-        </div>
-
+        <SendComments productId={productId} />
         <ul className="lg:w-3/4 flex flex-col gap-y-2 child:w-full  ">
           <li className="child:flex py-4 border-b border-gray-200 child:border-white/20">
             <div className="flex items-center gap-x-2">

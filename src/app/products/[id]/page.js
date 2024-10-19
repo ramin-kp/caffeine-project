@@ -25,7 +25,7 @@ async function ProductDetails({ params }) {
     <main className="container child:mt-8">
       <Breadcrumb productDetails={true} />
       <Gallery productData={productDetails} />
-      <ProductComments comments={productDetails.comments} />
+      <ProductComments productId={params.id} comments={productDetails.comments} />
       <SimilarProducts />
     </main>
   );

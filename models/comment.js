@@ -16,7 +16,7 @@ const schema = mongoose.Schema({
     required: true,
   },
   recommend: {
-    type: Boolean,
+    type: String,
     required: true,
   },
   useful: {
@@ -33,6 +33,7 @@ const schema = mongoose.Schema({
   productID: {
     type: mongoose.Types.ObjectId,
     ref: "Product",
+    required: true,
   },
 });
 

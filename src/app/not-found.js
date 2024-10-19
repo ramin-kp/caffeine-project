@@ -30,7 +30,7 @@ function notFound() {
         <p className="text-gray-500 mt-2 text-center">
           لطفاً آدرس اینترنتی را بررسی کنید یا به صفحه اصلی برگردید.
         </p>
-        <a
+        <Link
           href="/"
           className="flex items-center justify-center mt-8 px-4 lg:px-8 py-2 lg:py-3 bg-green-500 text-white rounded-full shadow hover:bg-green-600 transition-all duration-300 transform hover:scale-105"
         >
@@ -38,7 +38,7 @@ function notFound() {
           <svg className="w-5 h-5 ">
             <use href="#chevron-left"></use>
           </svg>
-        </a>
+        </Link>
       </section>
     </main>
   );

@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
 import connectToDB from "@/configs/connectToDB";
-import commentModel from "@/models/comment";
-import productModel from "@/models/product";
+import commentModel from "@/models/Comment";
+import productModel from "@/models/Product";
 
 export const POST = async (req) => {
   try {

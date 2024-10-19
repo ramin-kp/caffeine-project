@@ -14,7 +14,7 @@ function Navbar({ user }) {
   return (
     <header
       className={`${
-        isStickyNavbar ? "sticky inset-0 z-10" : ""
+        isStickyNavbar ? "sticky inset-0 z-50" : ""
       } transition-all duration-150`}
     >
       {/* <!-- NAV BAR  --> */}

@@ -1,5 +1,5 @@
 import connectToDB from "@/configs/connectToDB";
-import productModel from "@/models/product";
+import productModel from "@/models/Product";
 
 export const POST = async (req) => {
   try {

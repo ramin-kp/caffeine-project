@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-require("./product");
+require("./Product");
 
 const schema = mongoose.Schema({
   username: {

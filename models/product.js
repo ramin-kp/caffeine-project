@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-require("./comment");
+require("./Comment");
 
 const schema = mongoose.Schema({
   nameFa: {
@@ -10,7 +10,7 @@ const schema = mongoose.Schema({
     type: String,
     required: true,
   },
-  shortDescription: {
+  description: {
     type: String,
     required: true,
   },

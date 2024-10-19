@@ -62,10 +62,11 @@ const authUser = async () => {
   if (token) {
     const tokenPayload = verifyAccessToken(token.value);
     if (tokenPayload) {
-      user = await userModel.findOne(
+      const userData = await userModel.findOne(
         { email: tokenPayload.email },
         "-__v -password"
       );
+      user = JSON.parse(JSON.stringify(userData));
     } else {
       user = false;
     }

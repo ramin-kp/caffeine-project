@@ -53,8 +53,6 @@ function SignUp() {
       body: JSON.stringify(data),
     });
     const userData = await res.json();
-    console.log("data", userData);
-    console.log("res", res);
     if (res.status === 201) {
       showSwal("ثبت نام شما با موفقیت انجام شد", "success", "تأیید");
     } else {

@@ -6,7 +6,7 @@ function ProductCard({ img }) {
   return (
     <div className="group">
       <Image
-        src={`/images/products/${img}`}
+        src={`/Images/products/${img}`}
         alt={`${img}`}
         width={200}
         height={200}

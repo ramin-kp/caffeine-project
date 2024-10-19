@@ -432,6 +432,7 @@
     pointer-events: auto;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
   }
+
   /* Products Card */
   .products-card-item {
     @apply w-64 mb-2 bg-white dark:bg-zinc-700 shadow relative cursor-pointer overflow-hidden rounded-lg;
@@ -487,4 +488,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.swiper-pagination-bullet-active {
+  @apply !bg-green-500;
 }

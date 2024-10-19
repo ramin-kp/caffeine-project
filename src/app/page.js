@@ -9,7 +9,7 @@ import ProductBanner from "@/components/templates/index/ProductBanner";
 import Offer from "@/components/templates/index/Offer";
 import Blog from "@/components/templates/index/Blog";
 
-function Home() {
+export default async function Home() {
   return (
     <>
       <Banner />
@@ -22,5 +22,3 @@ function Home() {
     </>
   );
 }
-
-export default Home;

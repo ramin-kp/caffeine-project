@@ -1,6 +1,6 @@
 import connectToDB from "@/configs/connectToDB";
 
-import userModel from "@/models/user";
+import userModel from "@/models/User";
 import {
   generateAccessToken,
   validPassword,

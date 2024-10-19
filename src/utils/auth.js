@@ -1,6 +1,8 @@
-import { sign, verify } from "jsonwebtoken";
-
 const { hash, compare } = require("bcryptjs");
+import { sign, verify } from "jsonwebtoken";
+import { cookies } from "next/dist/client/components/headers";
+import userModel from "@/models/User";
+import connectToDB from "@/configs/connectToDB";
 
 const hashPassword = async (password) => {
   const hashedPassword = await hash(password, 12);
@@ -25,6 +27,7 @@ const verifyAccessToken = (accessToken) => {
     return tokenPayload;
   } catch (error) {
     console.log("verify accessToken error ->", error);
+    return false;
   }
 };
 
@@ -52,6 +55,24 @@ const verifyPassword = (password) => {
   return pattern.test(password);
 };
 
+const authUser = async () => {
+  connectToDB();
+  const token = cookies()?.get("token");
+  let user = null;
+  if (token) {
+    const tokenPayload = verifyAccessToken(token.value);
+    if (tokenPayload) {
+      user = await userModel.findOne(
+        { email: tokenPayload.email },
+        "-__v -password"
+      );
+    } else {
+      user = false;
+    }
+  }
+  return user;
+};
+
 export {
   hashPassword,
   validPassword,
@@ -61,4 +82,5 @@ export {
   verifyUsername,
   verifyEmail,
   verifyPassword,
+  authUser,
 };

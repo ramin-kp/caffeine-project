@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-function Navbar() {
+function Navbar({ user }) {
   const [isStickyNavbar, setIsStickyNavbar] = useState(false);
-
   useEffect(() => {
     const currentScroll = () =>
       window.scrollY > 5 ? setIsStickyNavbar(true) : setIsStickyNavbar(false);
@@ -119,65 +119,69 @@ function Navbar() {
                 </a>
               </div>
             </button>
-            {/* <!-- USER ACCOUNE BOX  --> */}
-            <button className="group relative px-2 lg:px-3 py-2 flex items-center justify-end gap-x-1 text-white transition-colors bg-green-500 hover:bg-green-600 rounded-lg">
-              <svg className="h-5 w-5 hidden lg:flex">
-                <use href="#user"></use>
-              </svg>
-              <a href="dashboard.html"> حساب کاربری</a>
-              {/* <!-- SUB MENU  --> */}
-              <div className="absolute dark:border-none border border-gray-100 w-52 p-4 bg-white text-zinc-900 dark:text-white flex flex-col gap-y-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:top-12 transition-all delay-100 dark:bg-zinc-800 top-20 rounded text-base shadow child:transition-all child:py-1 child:px-2">
-                <a
-                  href="#"
-                  className="flex items-center gap-x-3 w-full hover:bg-green-500/20 hover:text-green-500 rounded"
-                >
-                  <svg className="h-5 w-5">
+
+            {user ? (
+              <>
+                {/* <!-- USER ACCOUNE BOX  --> */}
+                <button className="group relative px-2 lg:px-3 py-2 flex items-center justify-end gap-x-1 text-white transition-colors bg-green-500 hover:bg-green-600 rounded-lg">
+                  <svg className="h-5 w-5 hidden lg:flex">
                     <use href="#user"></use>
                   </svg>
-                  سفارشات من
-                </a>
-                <a
-                  href="#"
-                  className="flex items-center gap-x-3 w-full hover:bg-green-500/20 hover:text-green-500 rounded"
-                >
-                  <svg className="h-5 w-5">
-                    <use href="#envelope"></use>
-                  </svg>
-                  لیست پیام ها
-                </a>
-                <a
-                  href="#"
-                  className="flex items-center gap-x-3 w-full hover:bg-green-500/20 hover:text-green-500 rounded"
-                >
-                  <svg className="h-5 w-5">
-                    <use href="#cog"></use>
-                  </svg>
-                  اطلاعات کاربری
-                </a>
-                {/* <!--BORDER  --> */}
-                <span className="border-t dark:border-gray-100/20 border-gray-100-gray-100"></span>
-                <a
-                  href="#"
-                  className="flex items-center gap-x-3 w-full hover:bg-red-400/20 dark:hover:bg-rose-500/20 rounded hover:text-rose-400"
-                >
-                  <svg className="h-5 w-5">
-                    <use href="#arrow-left-start-on-rectangle"></use>
-                  </svg>
-                  خروج از حساب
-                </a>
-              </div>
-            </button>
-
-            {/* <!-- LOGIN BTN --> */}
-            {/* <a
-              href="login.html"
-              className="hidden relative px-2 lg:px-3 py-2 items-center justify-end gap-x-1 text-white transition-colors bg-green-500 hover:bg-green-600 rounded-lg"
-            >
-              <svg className="h-5 w-5 flex rotate-180">
-                <use href="#arrow-left-start-on-rectangle"></use>
-              </svg>
-              ورود | ثبت نام
-            </a> */}
+                  <a href="dashboard.html"> حساب کاربری</a>
+                  {/* <!-- SUB MENU  --> */}
+                  <div className="absolute dark:border-none border border-gray-100 w-52 p-4 bg-white text-zinc-900 dark:text-white flex flex-col gap-y-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:top-12 transition-all delay-100 dark:bg-zinc-800 top-20 rounded text-base shadow child:transition-all child:py-1 child:px-2">
+                    <a
+                      href="#"
+                      className="flex items-center gap-x-3 w-full hover:bg-green-500/20 hover:text-green-500 rounded"
+                    >
+                      <svg className="h-5 w-5">
+                        <use href="#user"></use>
+                      </svg>
+                      سفارشات من
+                    </a>
+                    <a
+                      href="#"
+                      className="flex items-center gap-x-3 w-full hover:bg-green-500/20 hover:text-green-500 rounded"
+                    >
+                      <svg className="h-5 w-5">
+                        <use href="#envelope"></use>
+                      </svg>
+                      لیست پیام ها
+                    </a>
+                    <a
+                      href="#"
+                      className="flex items-center gap-x-3 w-full hover:bg-green-500/20 hover:text-green-500 rounded"
+                    >
+                      <svg className="h-5 w-5">
+                        <use href="#cog"></use>
+                      </svg>
+                      اطلاعات کاربری
+                    </a>
+                    {/* <!--BORDER  --> */}
+                    <span className="border-t dark:border-gray-100/20 border-gray-100-gray-100"></span>
+                    <a
+                      href="#"
+                      className="flex items-center gap-x-3 w-full hover:bg-red-400/20 dark:hover:bg-rose-500/20 rounded hover:text-rose-400"
+                    >
+                      <svg className="h-5 w-5">
+                        <use href="#arrow-left-start-on-rectangle"></use>
+                      </svg>
+                      خروج از حساب
+                    </a>
+                  </div>
+                </button>
+              </>
+            ) : (
+              <Link
+                href="/signin"
+                className="flex relative px-2 lg:px-3 py-2 items-center justify-end gap-x-1 text-white transition-colors bg-green-500 hover:bg-green-600 rounded-lg"
+              >
+                <svg className="h-5 w-5 flex rotate-180">
+                  <use href="#arrow-left-start-on-rectangle"></use>
+                </svg>
+                ورود | ثبت نام
+              </Link>
+            )}
           </div>
         </div>
       </nav>

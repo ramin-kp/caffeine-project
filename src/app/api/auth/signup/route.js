@@ -11,7 +11,7 @@ import { roles } from "@/utils/constant";
 import connectToDB from "@/configs/connectToDB";
 
 //model
-import userModel from "@/models/user";
+import userModel from "@/models/User";
 
 const POST = async (req) => {
   try {

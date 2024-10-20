@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-function Breadcrumb({ productDetails }) {
+function Breadcrumb({ productDetails, href }) {
   return (
     <section>
       <ul className="flex items-center gap-x-2 text-gray-400 text-sm lg:text-base">
@@ -19,7 +19,7 @@ function Breadcrumb({ productDetails }) {
         </li>
         {productDetails && (
           <li className="flex items-center gap-x-2">
-            <Link href={`/products/${""}`}>جزییات محصول</Link>
+            <Link href={`/products/${href}`}>جزییات محصول</Link>
           </li>
         )}
       </ul>

@@ -41,7 +41,7 @@ async function ProductDetails({ params }) {
 
   return (
     <main className="container child:mt-8">
-      <Breadcrumb productDetails={true} />
+      <Breadcrumb productDetails={true} href={productDetails._id} />
       <Gallery productData={productDetails} user={user} />
       <ProductComments
         productId={params.id}

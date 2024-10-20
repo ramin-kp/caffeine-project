@@ -54,6 +54,10 @@ const verifyPassword = (password) => {
     /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/g;
   return pattern.test(password);
 };
+const verifyPhoneNumber = (phone) => {
+  const pattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/g;
+  return pattern.test(phone);
+};
 
 const authUser = async () => {
   connectToDB();
@@ -83,5 +87,6 @@ export {
   verifyUsername,
   verifyEmail,
   verifyPassword,
+  verifyPhoneNumber,
   authUser,
 };

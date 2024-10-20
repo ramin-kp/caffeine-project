@@ -2,6 +2,7 @@
 import { verifyEmail, verifyPassword, verifyUsername } from "@/utils/auth";
 import { showSwal } from "@/utils/helpers";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 
 export function generateMetadata() {
@@ -15,6 +16,11 @@ function SignIn() {
   const [password, setPassword] = useState("");
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [isLoader, setIsLoader] = useState(false);
+  const searchParams = useSearchParams();
+  const redirectUrl = searchParams.get("redirect") || "/";
+  const router = useRouter();
+
+  //Fn
   const submitHandler = async (e) => {
     e.preventDefault();
     if (!identifier || !password) {
@@ -52,7 +58,7 @@ function SignIn() {
         "با موفقیت وارد حساب کاربری خود شدید",
         "success",
         "تأیید"
-      );
+      ).then(() => router.push(redirectUrl));
     } else {
       setIsLoader(false);
       return showSwal(`${data.message}`, "error", "تأیید");

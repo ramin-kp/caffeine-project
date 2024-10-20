@@ -1,8 +1,11 @@
 "use client";
-import { showSwal } from "@/utils/helpers";
 import React, { useEffect, useState } from "react";
 
-function SendComments({ productId }) {
+//utils
+import { showSwal } from "@/utils/helpers";
+import { useRouter } from "next/navigation";
+
+function SendComments({ productId, userData }) {
   const [commentsData, setCommentData] = useState({
     username: "",
     title: "",
@@ -10,6 +13,7 @@ function SendComments({ productId }) {
     recommend: "",
     productID: "",
   });
+  const router = useRouter();
 
   useEffect(() => {
     setCommentData({ ...commentsData, productID: productId });
@@ -18,8 +22,15 @@ function SendComments({ productId }) {
   const commentsDataHandler = (e) => {
     setCommentData({ ...commentsData, [e.target.name]: e.target.value });
   };
-
   const sendCommentHandler = async () => {
+    const currentUrl = window.location.pathname;
+    if (!userData._id) {
+      return showSwal(
+        "لطفا برای ثبت کامنت اول وارد اکانت خود شوید",
+        "error",
+        "ورد به حساب کاربری"
+      ).then(() => router.push(`/signin?redirect=${currentUrl}`));
+    }
     const { username, title, body, recommend, productID } = commentsData;
     if (
       !username.trim() ||
@@ -82,7 +93,7 @@ function SendComments({ productId }) {
                   child:transition-all"
       >
         <button
-          className={`text-green-600 ring-transparent ring-1  dark:ring-white/20 ${
+          className={`text-green-600 ring-transparent ring-1  dark:ring-white/20 focus:ring-green-600 focus:dark:ring-green-600 ${
             commentsData.recommend === "true"
               ? "ring-green-600 dark:ring-green-600"
               : ""
@@ -95,7 +106,7 @@ function SendComments({ productId }) {
           میکنم
         </button>
         <button
-          className={`text-red-500 ring-transparent ring-1  dark:ring-white/20 ${
+          className={`text-red-500 ring-transparent ring-1  dark:ring-white/20 focus:ring-[#EF4343] focus:dark:ring-[#EF4343] ${
             commentsData.recommend === "false"
               ? "ring-[#EF4343] dark:ring-[#EF4343]"
               : ""

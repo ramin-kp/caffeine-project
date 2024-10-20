@@ -20,10 +20,16 @@ const schema = mongoose.Schema({
     required: true,
   },
   useful: {
-    typeof: Number,
+    type: Number,
+    default: 0,
   },
   unhelpful: {
-    typeof: Number,
+    type: Number,
+    default: 0,
+  },
+  isAccept: {
+    type: Boolean,
+    default: false,
   },
   date: {
     type: Date,

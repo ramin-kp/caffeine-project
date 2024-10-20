@@ -56,7 +56,7 @@ export const POST = async (req) => {
 export const GET = async () => {
   try {
     connectToDB();
-    const comments = await commentModel.find({});
+    const comments = await commentModel.find({ isAccept: true });
 
     return Response.json({ data: comments });
   } catch (error) {

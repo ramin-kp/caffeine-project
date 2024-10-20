@@ -137,7 +137,9 @@ function Gallery({ productData }) {
       </div>
       <div className="w-full lg:w-1/4 lg:sticky top-5 flex flex-col gap-y-6">
         <div className="flex items-center gap-x-1">
-          <p className="text-2xl font-DanaDemiBold">163,000</p>
+          <p className="text-2xl font-DanaDemiBold">
+            {new Intl.NumberFormat("fa-IR").format(price).toLocaleString()}
+          </p>
           <p className="">تومان</p>
         </div>
 
@@ -155,11 +157,10 @@ function Gallery({ productData }) {
           </svg>
           <input
             type="number"
-            name="customInput"
-            id="customInput"
             min="1"
             max={quantity}
             value={productQuantity}
+            readOnly
             className="custom-input mr-4 text-lg bg-transparent"
           />
           <svg

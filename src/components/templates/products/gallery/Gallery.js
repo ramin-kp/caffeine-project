@@ -1,9 +1,13 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ProductSlider from "./ProductSlider";
+import { showSwal } from "@/utils/helpers";
+import { useRouter } from "next/navigation";
 
-function Gallery({ productData }) {
+function Gallery({ productData, user }) {
   const [productQuantity, setProductQuantity] = useState(1);
+  const router = useRouter();
+
   const {
     nameFa,
     nameEn,
@@ -16,6 +20,33 @@ function Gallery({ productData }) {
     price,
     quantity,
   } = productData;
+
+  //Fn
+  const addToWishlist = async () => {
+    if (!user || !user._id) {
+      const currentUrl = window.location.pathname;
+      return showSwal(
+        "لطفا ابتدا وارد حساب کاربری خود شوید",
+        "error",
+        "ورد به حساب کاربری"
+      ).then(() => router.push(`/signin?redirect=${currentUrl}`));
+    }
+    const data = {
+      userID: user._id,
+      productID: productData._id,
+    };
+    const res = await fetch("/api/wishlist", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    const wishData = await res.json();
+    if (res.status === 201 || res.status === 200) {
+      return showSwal(`${wishData.message}`, "success", "تایید");
+    } else {
+      return showSwal(`${wishData.message}`, "error", "تایید");
+    }
+  };
 
   return (
     <section className="flex flex-col lg:flex-row items-start gap-4 child:rounded-lg child:bg-white child:dark:bg-zinc-700 child:shadow child:p-4">
@@ -34,7 +65,10 @@ function Gallery({ productData }) {
                 </div>
               </div>
               <div className="tooltip ">
-                <button className="rounded-full p-1.5 border-2 border-gray-200 dark:border-white/20">
+                <button
+                  className="rounded-full p-1.5 border-2 border-gray-200 dark:border-white/20"
+                  onClick={addToWishlist}
+                >
                   <svg className="w-5 h-5">
                     <use href="#heart"></use>
                   </svg>

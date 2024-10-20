@@ -15,10 +15,10 @@ import { authUser } from "@/utils/auth";
 export async function generateMetadata({ params }) {
   const res = await fetch(`http://localhost:3000/api/products/${params.id}`);
   const product = await res.json();
-  console.log("ressssssssssssssssssssssss", product);
 
   const title = `قهوه تلخ | ${product.data.nameFa} `;
   const description = `قهوه تلخ - صفحه جزئیات محصول ${product.data.nameFa}`;
+
   return { title, description };
 }
 
@@ -32,13 +32,17 @@ async function ProductDetails({ params }) {
     select: "-__v -productID",
   });
 
+  if (!data) {
+    return notFound();
+  }
+
   const productDetails = JSON.parse(JSON.stringify(data));
   const user = await authUser();
 
   return (
     <main className="container child:mt-8">
       <Breadcrumb productDetails={true} />
-      <Gallery productData={productDetails} />
+      <Gallery productData={productDetails} user={user} />
       <ProductComments
         productId={params.id}
         comments={productDetails.comments}

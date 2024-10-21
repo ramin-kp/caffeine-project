@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 
 function Topbar({ setIsOpen }) {
@@ -70,15 +71,15 @@ function Topbar({ setIsOpen }) {
             <use href="#sun" />
           </svg>
         </button>
-        <a
-          href="index.html"
+        <Link
+          href="/"
           className="hidden lg:flex items-center gap-x-0.5 text-green-500"
         >
           صفحه اصلی
           <svg className="w-4 h-4">
             <use href="#chevron-left"></use>
           </svg>
-        </a>
+        </Link>
       </div>
     </div>
   );

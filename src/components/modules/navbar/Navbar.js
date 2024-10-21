@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import SignOut from "../userPanel/Sidebar/SignOut";
 
 function Navbar({ user }) {
   const [isStickyNavbar, setIsStickyNavbar] = useState(false);
@@ -127,11 +128,11 @@ function Navbar({ user }) {
                   <svg className="h-5 w-5 hidden lg:flex">
                     <use href="#user"></use>
                   </svg>
-                  <Link href="#"> حساب کاربری</Link>
+                  <Link href="/u-panel"> حساب کاربری</Link>
                   {/* <!-- SUB MENU  --> */}
                   <div className="absolute dark:border-none border border-gray-100 w-52 p-4 bg-white text-zinc-900 dark:text-white flex flex-col gap-y-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:top-12 transition-all delay-100 dark:bg-zinc-800 top-20 rounded text-base shadow child:transition-all child:py-1 child:px-2">
                     <Link
-                      href="#"
+                      href="/u-panel/orders"
                       className="flex items-center gap-x-3 w-full hover:bg-green-500/20 hover:text-green-500 rounded"
                     >
                       <svg className="h-5 w-5">
@@ -140,7 +141,7 @@ function Navbar({ user }) {
                       سفارشات من
                     </Link>
                     <Link
-                      href="#"
+                      href="/u-panel/messages"
                       className="flex items-center gap-x-3 w-full hover:bg-green-500/20 hover:text-green-500 rounded"
                     >
                       <svg className="h-5 w-5">
@@ -149,7 +150,7 @@ function Navbar({ user }) {
                       لیست پیام ها
                     </Link>
                     <Link
-                      href="#"
+                      href="/u-panel/account"
                       className="flex items-center gap-x-3 w-full hover:bg-green-500/20 hover:text-green-500 rounded"
                     >
                       <svg className="h-5 w-5">
@@ -159,15 +160,9 @@ function Navbar({ user }) {
                     </Link>
                     {/* <!--BORDER  --> */}
                     <span className="border-t dark:border-gray-100/20 border-gray-100-gray-100"></span>
-                    <Link
-                      href="#"
-                      className="flex items-center gap-x-3 w-full hover:bg-red-400/20 dark:hover:bg-rose-500/20 rounded hover:text-rose-400"
-                    >
-                      <svg className="h-5 w-5">
-                        <use href="#arrow-left-start-on-rectangle"></use>
-                      </svg>
-                      خروج از حساب
-                    </Link>
+                    <div className="flex items-center gap-x-3 w-full hover:bg-red-400/20 dark:hover:bg-rose-500/20 rounded hover:text-rose-400">
+                      <SignOut />
+                    </div>
                   </div>
                 </button>
               </>

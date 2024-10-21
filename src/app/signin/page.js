@@ -65,7 +65,7 @@ function SignIn() {
     }
   };
   return (
-    <main className="container flex items-center flex-col justify-center mt-8">
+    <main className="container flex items-center flex-col justify-center h-screen overflow-hidden">
       <div className="max-w-lg w-full shadow">
         <div className="bg-white dark:bg-zinc-700 rounded-lg overflow-hidden">
           <div className="p-3 lg:p-8">

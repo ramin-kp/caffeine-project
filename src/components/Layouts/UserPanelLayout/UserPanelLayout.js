@@ -1,10 +1,29 @@
 "use client";
 import Sidebar from "@/components/modules/userPanel/Sidebar/Sidebar";
 import Topbar from "@/components/modules/userPanel/Topbar/Topbar";
-import React, { useState } from "react";
+import { redirect } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 function UserPanelLayout({ children }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState([]);
+  useEffect(() => {
+    const fetchUser = async () => {
+      const res = await fetch("/api/auth/me");
+      const userData = await res.json();
+      if (res.status === 200) {
+        setUser(userData.data);
+      } else {
+        setUser(null);
+      }
+      console.log("userData", res);
+    };
+    fetchUser();
+  }, []);
+  if (!user) {
+    return redirect("/signin");
+  }
+  console.log("user", user);
   return (
     <section className="flex flex-col xl:h-screen items-start lg:flex-row">
       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />

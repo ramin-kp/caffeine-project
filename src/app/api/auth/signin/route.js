@@ -80,6 +80,7 @@ const POST = async (req) => {
     );
   } catch (error) {
     console.log("internal server error ->", error);
+    return Response.json({ message: error }, { status: 500 });
   }
 };
 

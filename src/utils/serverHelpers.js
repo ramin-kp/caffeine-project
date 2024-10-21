@@ -16,7 +16,7 @@ const authUser = async () => {
       );
       user = JSON.parse(JSON.stringify(userData));
     } else {
-      user = false;
+      user = null;
     }
   }
   return user;

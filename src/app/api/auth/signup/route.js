@@ -79,6 +79,8 @@ const POST = async (req) => {
     );
   } catch (error) {
     console.log("server internal error", error);
+    return Response.json({ message: error }, { status: 500 });
+
   }
 };
 

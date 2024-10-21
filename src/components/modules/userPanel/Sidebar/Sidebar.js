@@ -1,5 +1,7 @@
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import SignOut from "./SignOut";
 
 function Sidebar({ isOpen, setIsOpen }) {
   return (
@@ -31,43 +33,43 @@ function Sidebar({ isOpen, setIsOpen }) {
             <svg className="w-6 h-6 ">
               <use href="#squares"></use>
             </svg>
-            <a href="dashboard.html">داشبورد</a>
+            <Link href="/u-panel">داشبورد</Link>
           </li>
           <li className="hover:bg-zinc-100 dark:hover:bg-zinc-600">
             <svg className="w-6 h-6 ">
               <use href="#shopping-bag"></use>
             </svg>
-            <a href="dashboard-orders.html">سفارش ها</a>
+            <Link href="/u-panel/orders">سفارش ها</Link>
           </li>
           <li className="hover:bg-zinc-100 dark:hover:bg-zinc-600">
             <svg className="w-6 h-6 ">
               <use href="#heart"></use>
             </svg>
-            <a href="dashboard-favorite.html">علاقه‌مندی ها</a>
+            <Link href="/u-panel/wishlist">علاقه‌مندی ها</Link>
           </li>
           <li className="hover:bg-zinc-100 dark:hover:bg-zinc-600">
             <svg className="w-6 h-6 ">
               <use href="#map"></use>
             </svg>
-            <a href="dashboard-address.html">آدرس ها</a>
+            <Link href="/u-panel/address">آدرس ها</Link>
           </li>
           <li className="hover:bg-zinc-100 dark:hover:bg-zinc-600">
             <svg className="w-6 h-6 ">
               <use href="#bell"></use>
             </svg>
-            <a href="dashboard-messages.html">پیام ها</a>
+            <Link href="/u-panel/messages">پیام ها</Link>
           </li>
           <li className="hover:bg-zinc-100 dark:hover:bg-zinc-600">
             <svg className="w-6 h-6 ">
               <use href="#cog"></use>
             </svg>
-            <a href="dashboard-account.html">اطلاعات حساب </a>
+            <Link href="/u-panel/account">اطلاعات حساب </Link>
           </li>
           <li className="text-red-400 hover:bg-red-500/20">
             <svg className="w-6 h-6 ">
               <use href="#arrow-left-start-on-rectangle"></use>
             </svg>
-            <a href="index.html">خروج از حساب </a>
+            <SignOut />
           </li>
         </ul>
       </div>
@@ -102,49 +104,49 @@ function Sidebar({ isOpen, setIsOpen }) {
             <svg className="w-5 h-5 ">
               <use href="#squares"></use>
             </svg>
-            <a href="dashboard.html">داشبورد</a>
+            <Link href="/u-panel">داشبورد</Link>
           </li>
           <li className="hover:bg-zinc-100 dark:hover:bg-zinc-600">
             <svg className="w-5 h-5 ">
               <use href="#shopping-bag"></use>
             </svg>
-            <a href="dashboard-orders.html">سفارش ها</a>
+            <Link href="/u-panel/orders">سفارش ها</Link>
           </li>
           <li className="hover:bg-zinc-100 dark:hover:bg-zinc-600">
             <svg className="w-5 h-5 ">
               <use href="#heart"></use>
             </svg>
-            <a href="dashboard-favorite.html">علاقه‌مندی ها</a>
+            <Link href="/u-panel/wishlist">علاقه‌مندی ها</Link>
           </li>
           <li className="hover:bg-zinc-100 dark:hover:bg-zinc-600">
             <svg className="w-5 h-5 ">
               <use href="#map"></use>
             </svg>
-            <a href="dashboard-address.html">آدرس ها</a>
+            <Link href="/u-panel/address">آدرس ها</Link>
           </li>
           <li className="hover:bg-zinc-100 dark:hover:bg-zinc-600">
             <svg className="w-5 h-5 ">
               <use href="#bell"></use>
             </svg>
-            <a href="dashboard-messages.html">پیام ها</a>
+            <Link href="/u-panel/messages">پیام ها</Link>
           </li>
           <li className="hover:bg-zinc-100 dark:hover:bg-zinc-600">
             <svg className="w-5 h-5 ">
               <use href="#cog"></use>
             </svg>
-            <a href="dashboard-account.html">اطلاعات حساب </a>
+            <Link href="/u-panel/account">اطلاعات حساب </Link>
           </li>
           <li className="hover:bg-zinc-100 dark:hover:bg-zinc-600">
             <svg className="w-5 h-5 ">
               <use href="#home"></use>
             </svg>
-            <a href="index.html"> صفحه اصلی</a>
+            <Link href="/"> صفحه اصلی</Link>
           </li>
           <li className="text-red-500 hover:bg-red-500/20">
             <svg className="w-5 h-5 ">
               <use href="#arrow-left-start-on-rectangle"></use>
             </svg>
-            <a href="index.html">خروج از حساب </a>
+            <SignOut />
           </li>
         </ul>
       </div>

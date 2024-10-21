@@ -22,7 +22,7 @@ function ProductSlider() {
     >
       <SwiperSlide>
         <Image
-          src="/Images/products/p-5.webp"
+          src="/Images/products/p-5.png"
           className="rounded-lg shadow w-full object-cover lg:w-96 lg:h-fit"
           width={400}
           height={400}
@@ -31,7 +31,7 @@ function ProductSlider() {
       </SwiperSlide>
       <SwiperSlide>
         <Image
-          src="/Images/products/p-4.webp"
+          src="/Images/products/p-4.png"
           className="rounded-lg shadow w-full  object-cover lg:w-96 lg:h-fit"
           width={400}
           height={400}
@@ -40,7 +40,7 @@ function ProductSlider() {
       </SwiperSlide>
       <SwiperSlide>
         <Image
-          src="/Images/products/p-1.webp"
+          src="/Images/products/p-1.png"
           className="rounded-lg shadow w-full  object-cover lg:w-96 lg:h-fit"
           width={400}
           height={400}
@@ -49,7 +49,7 @@ function ProductSlider() {
       </SwiperSlide>
       <SwiperSlide>
         <Image
-          src="/Images/products/p-4.webp"
+          src="/Images/products/p-4.png"
           className="rounded-lg shadow w-full  object-cover lg:w-96 lg:h-fit"
           width={400}
           height={400}

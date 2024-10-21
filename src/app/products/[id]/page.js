@@ -4,15 +4,20 @@ import mongoose from "mongoose";
 //components
 import Breadcrumb from "@/components/modules/productBreadcrumb/Breadcrumb";
 import ProductComments from "@/components/templates/products/comments/ProductComments";
-import Gallery from "@/components/templates/products/gallery/Gallery";
-import SimilarProducts from "@/components/templates/products/similarProducts/SimilarProducts";
-import notFound from "@/app/not-found";
 
 //model
 import productModel from "@/models/Product";
+
+//utils
 import { authUser } from "@/utils/serverHelpers";
+
+//components
 import Navbar from "@/components/modules/navbar/Navbar";
 import Footer from "@/components/modules/footer/Footer";
+import Gallery from "@/components/templates/products/gallery/Gallery";
+import SimilarProducts from "@/components/templates/products/similarProducts/SimilarProducts";
+import notFound from "@/app/not-found";
+import connectToDB from "@/configs/connectToDB";
 
 export async function generateMetadata({ params }) {
   const res = await fetch(`http://localhost:3000/api/products/${params.id}`);
@@ -28,6 +33,7 @@ async function ProductDetails({ params }) {
   if (!mongoose.isValidObjectId(params.id)) {
     return notFound();
   }
+  connectToDB();
   const data = await productModel.findOne({ _id: params.id }, "-__v").populate({
     path: "comments",
     match: { isAccept: true },

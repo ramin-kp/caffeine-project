@@ -6,7 +6,6 @@ import { showSwal } from "@/utils/helpers";
 import { useRouter } from "next/navigation";
 
 function SendComments({ productId, userData }) {
-  console.log(userData);
   const [commentsData, setCommentData] = useState({
     username: "",
     title: "",

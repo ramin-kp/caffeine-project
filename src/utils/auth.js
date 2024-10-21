@@ -1,8 +1,5 @@
 const { hash, compare } = require("bcryptjs");
 import { sign, verify } from "jsonwebtoken";
-import { cookies } from "next/dist/client/components/headers";
-import userModel from "@/models/User";
-import connectToDB from "@/configs/connectToDB";
 
 const hashPassword = async (password) => {
   const hashedPassword = await hash(password, 12);

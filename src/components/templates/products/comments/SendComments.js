@@ -6,6 +6,7 @@ import { showSwal } from "@/utils/helpers";
 import { useRouter } from "next/navigation";
 
 function SendComments({ productId, userData }) {
+  console.log(userData);
   const [commentsData, setCommentData] = useState({
     username: "",
     title: "",
@@ -24,7 +25,7 @@ function SendComments({ productId, userData }) {
   };
   const sendCommentHandler = async () => {
     const currentUrl = window.location.pathname;
-    if (!userData._id) {
+    if (!userData || !userData?._id) {
       return showSwal(
         "لطفا برای ثبت کامنت اول وارد اکانت خود شوید",
         "error",

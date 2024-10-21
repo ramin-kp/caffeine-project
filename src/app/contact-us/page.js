@@ -4,14 +4,23 @@ import React from "react";
 import FormBox from "@/components/templates/contactUs/FormBox/FormBox";
 import Breadcrumb from "@/components/templates/contactUs/breadcrumb/Breadcrumb";
 import Map from "@/components/templates/contactUs/Map/Map";
+import Navbar from "@/components/modules/navbar/Navbar";
+import Footer from "@/components/modules/footer/Footer";
+import { authUser } from "@/utils/serverHelpers";
 
-function ContactUs() {
+async function ContactUs() {
+  const user = await authUser();
+
   return (
-    <main className="container child:mt-8">
-      <Breadcrumb />
-      <FormBox />
-      <Map />
-    </main>
+    <>
+      <Navbar user={user} />
+      <main className="container child:mt-8">
+        <Breadcrumb />
+        <FormBox />
+        <Map />
+      </main>
+      <Footer />
+    </>
   );
 }
 

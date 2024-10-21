@@ -10,7 +10,9 @@ import notFound from "@/app/not-found";
 
 //model
 import productModel from "@/models/Product";
-import { authUser } from "@/utils/auth";
+import { authUser } from "@/utils/serverHelpers";
+import Navbar from "@/components/modules/navbar/Navbar";
+import Footer from "@/components/modules/footer/Footer";
 
 export async function generateMetadata({ params }) {
   const res = await fetch(`http://localhost:3000/api/products/${params.id}`);
@@ -40,16 +42,20 @@ async function ProductDetails({ params }) {
   const user = await authUser();
 
   return (
-    <main className="container child:mt-8">
-      <Breadcrumb productDetails={true} href={productDetails._id} />
-      <Gallery productData={productDetails} user={user} />
-      <ProductComments
-        productId={params.id}
-        comments={productDetails.comments}
-        userData={user}
-      />
-      <SimilarProducts />
-    </main>
+    <>
+      <Navbar user={user} />
+      <main className="container child:mt-8">
+        <Breadcrumb productDetails={true} href={productDetails._id} />
+        <Gallery productData={productDetails} user={user} />
+        <ProductComments
+          productId={params.id}
+          comments={productDetails.comments}
+          userData={user}
+        />
+        <SimilarProducts />
+      </main>
+      <Footer />
+    </>
   );
 }
 

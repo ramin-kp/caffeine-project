@@ -23,7 +23,7 @@ function Navbar({ user }) {
           {/* <!-- LOGO --> */}
           <Link
             href="/"
-            className="flex items-center gap-x-1 dark:text-brown-300 text-brown-600 font-MorabbaMedium text-xl lg:text-3xl"
+            className="flex items-center gap-x-1 dark:text-brown-300 text-brown-600 font-MorabbaMedium text-lg lg:text-2xl"
           >
             <Image
               src="/Images/logo.png"

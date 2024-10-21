@@ -5,11 +5,6 @@ import "./globals.css";
 //utils
 import AOSInit from "@/utils/aos";
 import ScrollToTop from "@/utils/scrollToTop";
-import { authUser } from "@/utils/auth";
-
-//components
-import Navbar from "@/components/modules/navbar/Navbar";
-import Footer from "@/components/modules/footer/Footer";
 
 // import { localFont } from "next/font";
 
@@ -61,8 +56,6 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const user = await authUser();
-
   return (
     <html
       lang="fa"
@@ -72,12 +65,10 @@ export default async function RootLayout({ children }) {
       // className={`${Dana.variable} ${DanaMedium.variable} ${DanaDemiBold.variable} ${MorabbaLight.variable} ${MorabbaMedium.variable} ${MorabbaBold.variable}`}
     >
       <body>
-        <Navbar user={user} />
         <AOSInit />
         {children}
         <ScrollToTop />
         <SvgComponents />
-        <Footer />
       </body>
     </html>
   );

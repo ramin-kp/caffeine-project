@@ -59,25 +59,6 @@ const verifyPhoneNumber = (phone) => {
   return pattern.test(phone);
 };
 
-const authUser = async () => {
-  connectToDB();
-  const token = cookies()?.get("token");
-  let user = null;
-  if (token) {
-    const tokenPayload = verifyAccessToken(token.value);
-    if (tokenPayload) {
-      const userData = await userModel.findOne(
-        { email: tokenPayload.email },
-        "-__v -password"
-      );
-      user = JSON.parse(JSON.stringify(userData));
-    } else {
-      user = false;
-    }
-  }
-  return user;
-};
-
 export {
   hashPassword,
   validPassword,
@@ -88,5 +69,4 @@ export {
   verifyEmail,
   verifyPassword,
   verifyPhoneNumber,
-  authUser,
 };

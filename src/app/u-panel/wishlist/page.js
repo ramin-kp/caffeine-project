@@ -12,7 +12,6 @@ async function Wishlist() {
     .find({ userID: user._id }, "productID")
     .populate("productID", "nameFa score price");
   const wishData = JSON.parse(JSON.stringify(data));
-
   return (
     <UserPanelLayout>
       <div className="grid grid-cols-12 gap-6 lg:gap-12 mt-6">

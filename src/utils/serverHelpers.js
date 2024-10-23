@@ -5,7 +5,7 @@ const { verifyAccessToken } = require("./auth");
 
 const authUser = async () => {
   await connectToDB();
-  const token = cookies()?.get("token");
+  const token = cookies().get("token");
   let user = null;
   if (token) {
     const tokenPayload = verifyAccessToken(token.value);

@@ -54,7 +54,9 @@ function SignUp() {
     });
     const userData = await res.json();
     if (res.status === 201) {
-      showSwal("ثبت نام شما با موفقیت انجام شد", "success", "تأیید");
+      showSwal("ثبت نام شما با موفقیت انجام شد", "success", "تأیید").then(() =>
+        location.replace("/")
+      );
     } else {
       showSwal(`${userData.message}`, "error", "تلاش مجدد");
     }

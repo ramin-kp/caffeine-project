@@ -61,6 +61,12 @@ function Sidebar({ isOpen, setIsOpen }) {
           </li>
           <li className="hover:bg-zinc-100 dark:hover:bg-zinc-600">
             <svg className="w-6 h-6 ">
+              <use href="#envelope"></use>
+            </svg>
+            <Link href="/u-panel/tickets">تیکت ها</Link>
+          </li>
+          <li className="hover:bg-zinc-100 dark:hover:bg-zinc-600">
+            <svg className="w-6 h-6 ">
               <use href="#cog"></use>
             </svg>
             <Link href="/u-panel/account">اطلاعات حساب </Link>

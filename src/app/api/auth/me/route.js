@@ -29,7 +29,6 @@ export const GET = async () => {
     }
     return Response.json({ data: userData });
   } catch (error) {
-    console.log("errrorrrrrrr", error);
     return Response.json({ message: error }, { status: 500 });
   }
 };

@@ -5,7 +5,6 @@ export const POST = async () => {
     cookies().delete("token");
     return Response.json({ message: "با موفقیت از حساب کاربری خود خارج شدید" });
   } catch (error) {
-    console.log("errorrrrrrrrrrrr", error);
     return Response.json({ message: error }, { status: 500 });
   }
 };

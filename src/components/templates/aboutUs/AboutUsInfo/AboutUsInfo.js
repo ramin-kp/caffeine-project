@@ -1,6 +1,6 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 function AboutUsInfo() {
   return (
@@ -73,7 +73,7 @@ function AboutUsInfo() {
       </div>
       <div className="flex justify-end  w-full lg:w-2/4">
         <Image
-          src="/Images/abouteus.webp"
+          src="/Images/abouteus.png"
           className="rounded-lg  lg:h-[35rem]"
           width={560}
           height={560}

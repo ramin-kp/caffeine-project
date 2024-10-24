@@ -17,7 +17,7 @@ function notFound() {
     <main className="container mt-14">
       <section className="flex flex-col gap-y-2 items-center justify-center w-full text-center">
         <Image
-          src="/images/not-found.webp"
+          src="/Images/not-found.png"
           className="h-28 sm:h-36 lg:h-60"
           width={700}
           height={400}

@@ -15,7 +15,6 @@ function FormBox() {
   });
   const changeData = (event) => {
     setData({ ...data, [event.target.name]: event.target.value });
-    console.log("data", data);
   };
   const submitHandler = async (e) => {
     e.preventDefault();

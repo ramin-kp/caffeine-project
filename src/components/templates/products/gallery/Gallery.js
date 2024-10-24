@@ -24,7 +24,7 @@ function Gallery({ productData, user }) {
   //Fn
   const addToWishlist = async () => {
     if (!user || !user._id) {
-      const currentUrl = window.location.pathname;
+      const currentUrl = location.pathname;
       return showSwal(
         "لطفا ابتدا وارد حساب کاربری خود شوید",
         "error",

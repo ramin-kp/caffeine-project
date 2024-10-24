@@ -27,41 +27,43 @@ async function page() {
               </svg>
             </Link>
           </div>
-          <div className="relative mt-4 overflow-x-auto shadow rounded-lg">
-            <table className="w-full text-sm text-right text-gray-500 dark:text-gray-400">
-              <thead className="text-xs text-gray-700  bg-gray-50 dark:bg-zinc-700 dark:text-gray-200">
-                <tr>
-                  <th scope="col" className="px-6 py-3.5">
-                    موضوع
-                  </th>
-                  <th scope="col" className="px-6 py-3.5">
-                    تاریخ
-                  </th>
-                  <th scope="col" className="px-6 py-3.5">
-                    دپارتمان
-                  </th>
-                  <th scope="col" className="px-6 py-3.5">
-                    الویت
-                  </th>
-                  <th scope="col" className="px-6 py-3.5">
-                    وضعیت
-                  </th>
-                  <th scope="col" className="px-6 py-3.5 text-center">
-                    مشاهده
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {tickets.length > 0 ? (
-                  tickets.map((ticket) => (
+          {tickets.length > 0 ? (
+            <div className="relative mt-4 overflow-x-auto shadow rounded-lg">
+              <table className="w-full text-sm text-right text-gray-500 dark:text-gray-400">
+                <thead className="text-xs text-gray-700  bg-gray-50 dark:bg-zinc-700 dark:text-gray-200">
+                  <tr>
+                    <th scope="col" className="px-6 py-3.5">
+                      موضوع
+                    </th>
+                    <th scope="col" className="px-6 py-3.5">
+                      تاریخ
+                    </th>
+                    <th scope="col" className="px-6 py-3.5">
+                      دپارتمان
+                    </th>
+                    <th scope="col" className="px-6 py-3.5">
+                      الویت
+                    </th>
+                    <th scope="col" className="px-6 py-3.5">
+                      وضعیت
+                    </th>
+                    <th scope="col" className="px-6 py-3.5 text-center">
+                      مشاهده
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tickets.map((ticket) => (
                     <TicketBox key={ticket._id} {...ticket} />
-                  ))
-                ) : (
-                  <p className="text-red-500">تیکتی ثبت نشده است</p>
-                )}
-              </tbody>
-            </table>
-          </div>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <p className="w-full p-3 my-5 text-center text-lg bg-white text-red-500 rounded-lg">
+              تیکتی ثبت نشده است
+            </p>
+          )}
         </div>
       </div>
     </UserPanelLayout>

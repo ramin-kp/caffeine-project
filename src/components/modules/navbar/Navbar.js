@@ -141,11 +141,20 @@ function Navbar({ user }) {
                       سفارشات من
                     </Link>
                     <Link
-                      href="/u-panel/messages"
+                      href="/u-panel/tickets"
                       className="flex items-center gap-x-3 w-full hover:bg-green-500/20 hover:text-green-500 rounded"
                     >
                       <svg className="h-5 w-5">
                         <use href="#envelope"></use>
+                      </svg>
+                      تیکت‌های من
+                    </Link>
+                    <Link
+                      href="/u-panel/messages"
+                      className="flex items-center gap-x-3 w-full hover:bg-green-500/20 hover:text-green-500 rounded"
+                    >
+                      <svg className="h-5 w-5">
+                        <use href="#bell"></use>
                       </svg>
                       لیست پیام ها
                     </Link>
@@ -368,18 +377,22 @@ function Navbar({ user }) {
           <span className="flex w-full border-t dark:border-white/10 border-gray-200 my-8"></span>
           {/* <!-- ACTION BTNS --> */}
           <div className="flex items-start flex-col gap-y-5 child:flex child:items-center child:gap-x-2 child:font-DanaMedium">
-            <Link href="#">
-              <svg className="w-5 h-5">
-                <use href="#user"></use>
-              </svg>
-              حساب کاربری
-            </Link>
-            {/* <!-- <Link href="login.html" className="">
-                        <svg className="w-5 h-5">
-                            <use href="#arrow-left-start-on-rectangle"></use>
-                        </svg>
-                        ورود | ثبت نام 
-                    </Link> --> */}
+            {user ? (
+              <Link href="#">
+                <svg className="w-5 h-5">
+                  <use href="#user"></use>
+                </svg>
+                حساب کاربری
+              </Link>
+            ) : (
+              <Link href="login.html" className="">
+                <svg className="w-5 h-5">
+                  <use href="#arrow-left-start-on-rectangle"></use>
+                </svg>
+                ورود | ثبت نام
+              </Link>
+            )}
+
             <button className="toggle-theme">
               <span className="flex dark:hidden gap-x-1 items-center">
                 <svg className="w-6 h-6">

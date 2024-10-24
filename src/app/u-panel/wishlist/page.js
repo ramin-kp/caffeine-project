@@ -24,7 +24,7 @@ async function Wishlist() {
               ))}
             </div>
           ) : (
-            <p className="w-full text-center my-5 text-red-500 font-DanaMedium">
+            <p className="w-full p-3 my-5 text-center text-lg bg-white text-red-500 rounded-lg">
               محصولی ثبت نشده است
             </p>
           )}

@@ -1,9 +1,22 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SignOut from "./SignOut";
 
 function Sidebar({ isOpen, setIsOpen }) {
+  const [user, setUser] = useState({});
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const res = await fetch("/api/auth/me");
+      const data = await res.json();
+      if (res.status === 200) {
+        setUser(data.data);
+      }
+    };
+    fetchUserData();
+  }, []);
+  console.log(user);
   return (
     <>
       {/* Sidebar-Desktop */}
@@ -18,15 +31,17 @@ function Sidebar({ isOpen, setIsOpen }) {
               alt="AVATAR"
             />
             <span className="felx flex-col gap-y-2">
-              <p className="font-DanaMedium text-lg">پارسا وصالی</p>
-              <p className="text-gray-400">09100000001</p>
+              <p className="font-DanaMedium text-lg">
+                {user.lastName ? user.lastName : user.username}
+              </p>
+              <p className="text-gray-400">{user.phone && user.phone}</p>
             </span>
           </div>
-          <span>
+          <Link href="/u-panel/account">
             <svg className="w-6 h-6 cursor-pointer text-green-500">
               <use href="#edit"></use>
             </svg>
-          </span>
+          </Link>
         </div>
         <ul className="relative mt-4 space-y-2 child:duration-300 child:transition-all child:py-3  child:px-2 child:flex child:gap-x-2 text-lg child:cursor-pointer child:rounded-lg">
           <li className="bg-green-500/10 text-green-500">

@@ -58,7 +58,7 @@ function SignIn() {
         "با موفقیت وارد حساب کاربری خود شدید",
         "success",
         "تأیید"
-      ).then(() => router.push(redirectUrl));
+      ).then(() => router.replace(redirectUrl));
     } else {
       setIsLoader(false);
       return showSwal(`${data.message}`, "error", "تأیید");

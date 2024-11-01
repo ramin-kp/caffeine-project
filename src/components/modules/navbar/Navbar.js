@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import SignOut from "../userPanel/Sidebar/SignOut";
+import { roles } from "@/utils/constant";
 
 function Navbar({ user }) {
   const [isStickyNavbar, setIsStickyNavbar] = useState(false);
@@ -131,6 +132,17 @@ function Navbar({ user }) {
                   <Link href="/u-panel"> حساب کاربری</Link>
                   {/* <!-- SUB MENU  --> */}
                   <div className="absolute dark:border-none border border-gray-100 w-52 p-4 bg-white text-zinc-900 dark:text-white flex flex-col gap-y-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:top-12 transition-all delay-100 dark:bg-zinc-800 top-20 rounded text-base shadow child:transition-all child:py-1 child:px-2">
+                    {user?.role === roles.ADMIN && (
+                      <Link
+                        href="/a-panel"
+                        className="flex items-center gap-x-3 w-full hover:bg-green-500/20 hover:text-green-500 rounded"
+                      >
+                        <svg className="h-5 w-5">
+                          <use href="#setting"></use>
+                        </svg>
+                        پنل ادمین
+                      </Link>
+                    )}
                     <Link
                       href="/u-panel/orders"
                       className="flex items-center gap-x-3 w-full hover:bg-green-500/20 hover:text-green-500 rounded"
